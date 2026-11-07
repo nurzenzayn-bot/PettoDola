@@ -28,8 +28,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          printf 'GEMINI_API_KEY=%s\n' "$GEMINI_API_KEY"
-          > .env
+          printf 'GEMINI_API_KEY=%s\n' "$GEMINI_API_KEY" > .env
 
       - name: Build Debug APK
         run: |
