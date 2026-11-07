@@ -23,9 +23,13 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      
       - name: Prepare environment
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          echo 'GEMINI_API_KEY=BUILD_ONLY_PLACEHOLDER' > .env
+          printf 'GEMINI_API_KEY=%s\n' "$GEMINI_API_KEY"
+          > .env
 
       - name: Build Debug APK
         run: |
